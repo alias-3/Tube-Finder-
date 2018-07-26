@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="js/script.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 
 <body class="container" style="	background: url(img/bodybg.png) no-repeat right top; ">
@@ -20,23 +21,19 @@
 		<br>
 	</div>
 	<form class="container" style="margin-top: 4vw;">
+
 		<div align="center">
-		
-		<input id="squery" type="text" title="Type to Search" spellcheck="false" placeholder="search YouTube...">
-		
+		<input id="squery" type="text" title="Type to Search" spellcheck="false" autocomplete="true" placeholder="search YouTube...">
 		<button id="submit" class="btn btn-primary" type="submit" title="Search Results">
-			<img width="30px" height="30px" src="img/search.png">
+			<img width="30px" height="26px" src="img/search.png">
 		</button>
 		</div>
 	</form>
 	<br><br>
-	
-	<ul id="search-results">
-		
-	</ul>
+	<div class="container">
+	<ul id="search-results"></ul>
 	<div id="nav-buttons"></div>
-	
-
+	</div>
 	<footer style="text-align:center;margin-top: 12vw;margin-bottom: 0;font-weight:bold;font-size: 1.3em">
 		&copy; Anurag Wani | siteworks
 	</footer>

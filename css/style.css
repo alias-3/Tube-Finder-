@@ -34,17 +34,17 @@ div>span{
 }
 
 #result-card{
-	background-color:#F6F6F6;
+	background-color: white;#F6F6F6;
 	overflow-y: hidden;
 	padding: 2em 2em;
-	border-radius: 15px;
+	border-radius: 25px;
 	margin: 20px 20px;
-	box-shadow: 0 10px 10px 0 rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.08);
+	box-shadow: 0 10px 10px 0 rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
 #result-card:hover{
 	cursor: pointer;
-	box-shadow: 0 20px 40px 0 rgba(0,0,0,0.9), 0 0 0 1px rgba(0,0,0,0.08);
+	box-shadow: 0 20px 40px 0 rgba(0,0,0,1), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
 #item-desc{
@@ -58,5 +58,9 @@ div>span{
 	font-size: 1.5em;
 	text-align: left;
 	font-weight: bold;
+}
+
+#nav-buttons{
+	cursor: pointer;
 }
 
