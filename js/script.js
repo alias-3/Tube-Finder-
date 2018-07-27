@@ -8,13 +8,16 @@ $(function() {
 })
 
 
-function search(e) {
+function search(e) {          //place api key in the getJson request
+    
     $('#search-results').html(' ');
     $('#nav-buttons').html(' ');     
+    
     //brief get request made to the youtube data api
+    
     $.getJSON("https://www.googleapis.com/youtube/v3/search/",{
         part: "snippet",
-        key: "AIzaSyDPZyHPbSzP13beJ-81xwrfzo-W8Sl1I_Q",
+        key: "your_api_key",//<=paste your Youtube api key here and in the searchnav function
         maxResults: 8,
         type:'video',
         regionCode : 'IN',
@@ -36,8 +39,10 @@ function search(e) {
 }
 
 
-function searchnav(e) {
+function searchnav(e) {          //place api key in the getJson request 
    
+    //to choose between prev and next
+    
     if (e)
         var token = $('#navnext').data('token');
     else
@@ -46,10 +51,12 @@ function searchnav(e) {
     $('#search-results').html(' ');
     $('#nav-buttons').html(' ');  
     q = $('#squery').val();
+    
     //brief get request made to the youtube data api
+   
     $.getJSON("https://www.googleapis.com/youtube/v3/search/",{
         part: "snippet",
-        key: "AIzaSyDPZyHPbSzP13beJ-81xwrfzo-W8Sl1I_Q",
+        key: "your_api_key",//<=paste your Youtube api key here and in the search function
         maxResults: 8,
         pageToken : token,
         type:'video',
