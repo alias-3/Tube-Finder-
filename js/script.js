@@ -3,17 +3,14 @@ $(function() {
         e.preventDefault();
         //take query from user input
         var t = $("#squery").val();
-        //clear the previous console log taken for testing
         search(t);
-
     })
 })
 
 
 function search(e) {
     $('#search-results').html(' ');
-    $('#nav-buttons').html(' ');  
-    
+    $('#nav-buttons').html(' ');     
     //brief get request made to the youtube data api
     $.getJSON("https://www.googleapis.com/youtube/v3/search/",{
         part: "snippet",
@@ -27,7 +24,6 @@ function search(e) {
     var prevPageToken = data.prevPageToken;
     var prevnext = buildButton(nextPageToken,prevPageToken);
     $('#nav-buttons').append(prevnext);
-
     //iterate on the acquired number of json objects and append to output    
     $.each(data.items, function(i, item) {
         var individual_result = jsonResults(item);
@@ -36,9 +32,7 @@ function search(e) {
         //test the response recieved with console.log
         console.clear();
         console.log(data.items);
-    })
-    
- 
+    }) 
 }
 
 
@@ -61,23 +55,20 @@ function searchnav(e) {
         type:'video',
         regionCode:'in',
         q: q
-    }, function(data) {
-       var nextPageToken = data.nextPageToken;
-    var prevPageToken = data.prevPageToken;
-    var prevnext = buildButton(nextPageToken,prevPageToken);
-    $('#nav-buttons').append(prevnext);
-
-    //iterate on the acquired number of json objects and append to output    
-    $.each(data.items, function(i, item) {
-        var individual_result = jsonResults(item);
-        $('#search-results').append(individual_result);
-        });
-        //test the response recieved with console.log
-        console.clear();
-        console.log(data.items);
-    })
-    
- 
+        }, function(data) {
+                var nextPageToken = data.nextPageToken;
+                var prevPageToken = data.prevPageToken;
+                var prevnext = buildButton(nextPageToken,prevPageToken);
+                $('#nav-buttons').append(prevnext);
+                //iterate on the acquired number of json objects and append to output    
+                $.each(data.items, function(i, item) {
+                    var individual_result = jsonResults(item);
+                    $('#search-results').append(individual_result);
+                });
+                //test the response recieved with console.log
+                console.clear();
+                console.log(data.items);
+            })
 }
 
 //single result format
@@ -95,10 +86,10 @@ function jsonResults(e) {
     
 function buildButton(nextPageToken,prevPageToken){
     if(!prevPageToken)
-        var validButtons = '<div><img id="navnext" align="right" data-token="'+nextPageToken+'"  onClick="searchnav(1)" width="50px" height="50px" src="img/for.png"></div>';
+        var validButtons = '<div><img id="navnext" align="right" data-token="'+nextPageToken+'"  onClick="searchnav(1)" width="50px" height="50px" src="img/next.png"></div>';
     else if(!nextPageToken)
-        var validButtons = '<div><img id="navprev" align="left" data-token="'+prevPageToken+'" onClick="searchnav()" width="50px" height="50px" src="img/back.png"></div>';
+        var validButtons = '<div><img id="navprev" align="left" data-token="'+prevPageToken+'" onClick="searchnav()" width="50px" height="50px" src="img/previous.png"></div>';
     else
-        var validButtons = '<div><img id="navprev" align="left" data-token="'+prevPageToken+'" onClick="searchnav()" width="50px" height="50px" src="img/back.png"><a href="Tube Finder!.html"><img align="center" src="img/ref.png" width="50px" height="50px"><a><img id="navnext" align="right" data-token="'+nextPageToken+'" onClick="searchnav(1)" width="50px" height="50px" src="img/for.png"></div>';
+        var validButtons = '<div><img id="navprev" align="left" data-token="'+prevPageToken+'" onClick="searchnav()" width="50px" height="50px" src="img/previous.png"><a href="Tube Finder!.html"><img align="center" src="img/refresh.png" width="50px" height="50px"><a><img id="navnext" align="right" data-token="'+nextPageToken+'" onClick="searchnav(1)" width="50px" height="50px" src="img/next.png"></div>';
     return validButtons;
 }
