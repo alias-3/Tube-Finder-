@@ -17,7 +17,7 @@ function search(e) {          //place api key in the getJson request
     
     $.getJSON("https://www.googleapis.com/youtube/v3/search/",{
         part: "snippet",
-        key: "AIzaSyDPZyHPbSzP13beJ-81xwrfzo-W8Sl1I_Q",//"your_api_key",//<=paste your Youtube api key here and in the searchnav function below
+        key: "your_api_key",//<=paste your Youtube api key here and in the searchnav function below
         maxResults: 8,
         type:'video',
         regionCode : 'IN',
@@ -56,7 +56,7 @@ function searchnav(e) {          //place api key in the getJson request
    
     $.getJSON("https://www.googleapis.com/youtube/v3/search/",{
         part: "snippet",
-        key: "AIzaSyDPZyHPbSzP13beJ-81xwrfzo-W8Sl1I_Q",//"your_api_key",//<=paste your Youtube api key here and in the search function above
+        key: "your_api_key",//<=paste your Youtube api key here and in the search function above
         maxResults: 8,
         pageToken : token,
         type:'video',
